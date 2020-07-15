@@ -1,0 +1,5 @@
+node_modules
+*.log
+README.md
+.idea
+Job_Server/app/public/users/*
