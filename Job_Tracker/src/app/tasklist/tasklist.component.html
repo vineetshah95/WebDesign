@@ -1,0 +1,17 @@
+<mat-dialog-content class="popup-container">
+    <form>
+        <mat-form-field class="task-field">
+            <mat-label>+Add Task</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="TaskDatePicker">
+            <mat-datepicker-toggle matSuffix [for]="TaskDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #TaskDatePicker></mat-datepicker>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)='onSubmit()'>Submit</button>
+    </form>
+    <app-tasklist-item *ngFor='let task of tasks' [task]='task' (deleteTask)='deleteTask($event)'>
+    </app-tasklist-item>
+</mat-dialog-content>

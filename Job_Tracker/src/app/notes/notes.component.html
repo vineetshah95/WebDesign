@@ -1,0 +1,13 @@
+<!-- <app-toolbar></app-toolbar> -->
+<mat-dialog-content>
+    <div>
+    <form action="">
+    <mat-form-field class="text-area-field">
+        <mat-label>+Add note</mat-label>
+        <textarea matInput rows="10"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="SubmitNote()">Save</button>
+    </form>
+    <app-noteslist *ngFor = "let note of notes" [note]="note" (deleteNote)="deleteNote($event)"></app-noteslist>
+    </div>
+</mat-dialog-content>

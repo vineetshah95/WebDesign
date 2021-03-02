@@ -1,0 +1,17 @@
+.wishlist-body{
+    height: 100%;
+   
+}
+
+.holder{
+    width: 240px;
+    height: 100px;
+    background-color: lightgray;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+    display: inline-flex;
+}

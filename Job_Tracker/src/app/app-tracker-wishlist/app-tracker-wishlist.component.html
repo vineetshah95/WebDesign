@@ -1,0 +1,50 @@
+<!-- <div class="wishlist_container">
+
+    <div class="division_header">
+
+        <div class="header_text">
+            <h2>Wishlist</h2>
+        </div>
+        <img src="./../../assets/img/icons/download/shopping_cart-24px.svg"/>
+
+        <div  class="add_button_div">
+        <a class="add_button_link"  (click)="openModal(editProfileModal)">
+           Add Job <img class="add_button_img" src="./../../assets/img/icons/download/add-24px.svg">
+        </a>
+</div>
+
+
+    </div>
+
+            
+
+
+
+</div>
+
+
+<ng-template #editProfileModal let-modal>
+    <div class="modal-header">
+     <h5 class="modal-title" id="editProfileLabel">View Profile</h5>
+     <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+     </button>
+    </div>
+    <div class="modal-body">
+     <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()" class="text-center">
+      <ng-template #testingTemplate2 let-fullname="fullname">
+        <div>Full Name : {{fullname}}</div>
+      </ng-template>
+      <ng-container *ngTemplateOutlet="testingTemplate2;context:ctx">
+      </ng-container>
+  
+  
+      <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+      </div>
+     </form>
+    </div>
+   </ng-template>
+  <ng-container *ngTemplateOutlet="testingTemplate;context:ctx">
+  </ng-container>
+ -->

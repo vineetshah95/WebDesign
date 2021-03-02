@@ -1,0 +1,139 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Total Applications</h5>
+                  <span class="h2 font-weight-bold mb-0" id="applied" [(ngModel)] = "applied"></span>
+                </div>
+                <div class="col-auto">
+                  <div>
+                    <img src="https://img.icons8.com/dusk/64/000000/inspection.png"/>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 20.69%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Total Interviews Scheduled</h5>
+                  <span class="h2 font-weight-bold mb-0" id="interviews" [(ngModel)] = "interviews"></span>
+                </div>
+                <div class="col-auto">
+                  <div>
+                    <img src="https://img.icons8.com/dusk/64/000000/learn-more.png"/>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-danger mr-2"><i class="fas fa-arrow-up"></i> 8.48%</span>
+                <span class="text-nowrap">Since last week</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Total Jobs Offered</h5>
+                  <span class="h2 font-weight-bold mb-0" id="offers" [(ngModel)] = "offers"></span>
+                </div>
+                <div class="col-auto">
+                  <div>
+                    <img src="https://img.icons8.com/dusk/64/000000/accuracy.png"/>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 6.10%</span>
+                <span class="text-nowrap">Since yesterday</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Total Rejections</h5>
+                  <span class="h2 font-weight-bold mb-0" id="rejects" [(ngModel)] = "rejects"></span>
+                </div>
+                <div class="col-auto">
+                  <div>
+                    <img src="https://img.icons8.com/dusk/64/000000/work.png"/>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+        <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+          
+          <h3 class="mb-0">Students Profiles, {{studentList.length}}</h3>
+          
+          <div class="form-group mb-0" [ngClass]="{ 'focused': focus === true }" style="margin-left: 60px;">
+            <div class="input-group input-group-alternative">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-search" style="color:#DDDDDD;"></i></span>
+              </div>
+              <input class="form-control" placeholder="Search by Name" onkeyup="mySearchFunction();" type="text" id="searchText" (blur)="focus = false" style="color: #f3a4b5;" placeholder="Search by Student Name" >
+            </div>
+          </div>
+        </form>
+      </div>
+        <div class="table-responsive text-center">
+          <table class="table align-items-center table-flush" id="studentListTable">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Applied</th>
+                <th scope="col">Interviews</th>
+                <th scope="col">Offers</th>
+                <th scope="col">Rejected</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="rowsList">
+              
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer py-4">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

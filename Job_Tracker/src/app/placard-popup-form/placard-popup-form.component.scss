@@ -1,0 +1,20 @@
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+  }
+  .example-button-row{
+    align-content: center;
+    align-items: center;
+    align-self: center;
+  }
+  button[mat-raised-button]{
+    position: relative;
+    left: 65px;
+  }
+  #closebutton{
+    position: relative;
+    float: right;
+    bottom: 38px;
+  }

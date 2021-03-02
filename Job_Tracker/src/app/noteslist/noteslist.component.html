@@ -1,0 +1,16 @@
+<div class="outercontainer">
+    <div class="container" [class.mat-elevation-z2]=true>
+        <!-- <div class="noteText">    
+            {{ note.note }}
+        </div> -->
+        <textarea matInput rows=8 value = '{{note.noteDescription}}' name="note.noteDescription" [(ngModel)]="note.noteDescription"></textarea>
+        <div class="iconContainer">
+        <div class="saveIcon">
+            <button mat-icon-button color="primary" type="submit" (click)="onSave()"><mat-icon>done_outline</mat-icon></button>
+        </div>
+        <div class="deleteIcon" align = "right">
+            <button mat-icon-button color="warn" (click)="onDelete()"><mat-icon>delete_outline</mat-icon></button>
+        </div>
+        </div>
+    </div>
+</div>

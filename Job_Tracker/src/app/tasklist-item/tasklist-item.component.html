@@ -1,0 +1,12 @@
+<div class="outercontainer" [class.mat-elevation-z2]=true [ngClass]='setClasses()'>
+    <mat-checkbox color='primary' [checked]=checkValue (change)='onToggle(task)'>
+        <form class="inputBox">
+            <input matInput value='{{task.taskDescription}}' name="task.taskDescription" [(ng-model)]="task.taskDescription">
+            <!-- <button mat-icon-button color="primary" type="submit" (click)="onSave()"><mat-icon>done_outline</mat-icon></button> -->
+        </form>
+    </mat-checkbox>
+<div class="container" align="right">
+    <span>{{ task.taskDate }}</span>
+    <button mat-icon-button color="warn" (click)='onDelete(task)'><mat-icon>delete_outline</mat-icon></button>
+</div>
+</div>

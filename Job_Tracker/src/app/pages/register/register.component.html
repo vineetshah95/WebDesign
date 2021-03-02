@@ -1,0 +1,217 @@
+<div class="header bg-gradient-danger py-7 py-lg-8">
+  <div class="container">
+    <div class="header-body text-center mb-7">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-6">
+          <h1 class="text-white">Welcome!</h1>
+          <p class="text-lead text-light">Job search can become a mess. Use trackerz to organize your job search and land up in your dream job.:)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+  <!-- Table -->
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="card bg-secondary shadow border-0">
+        
+        <div class="card-body px-lg-5 py-lg-5">
+          <form role="form">
+            <div class="form-group">
+              <big class="text-center" style="margin-top: 80px; margin-left: 195px;">Sign Up</big>
+            </div>
+            
+            <div class="form-group" style="margin-top: 80px; margin-left: 45px;">
+              <div class="row justify-content-center">
+                <div class="col-lg-3 order-lg-2">
+                  <div class="card-profile-image">
+                    <a href="javascript:void(0)">
+                      <label for="file" style="cursor: pointer;" class="btn btn-default btn-file" >
+                        <img src="{{( url ) || 'assets/img/theme/web_user.jpg' }}" class="rounded-circle" style="height: 180px; width: 350px">
+                      </label>
+                      <input type="file" accept="image/ *" name="image" id="file" (change)="selectImage($event)" style="display: none;" required>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>  
+
+            <div class="form-group" style="margin-top: 170px;">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <!-- <i class="ni ni-hat-3"></i> -->
+                  <span class="input-group-text"><span class="iconify" data-icon="mdi-account" data-inline="false"></span></span>
+                </div>
+                <input class="form-control" placeholder="Enter FullName *" type="text" id="name" required >
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                </div>
+                <input class="form-control" placeholder="Enter Email Address *" type="email" id="emailId" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                <input class="form-control" placeholder="Enter Password *" type="password" id="password" required>
+                <i id="pass_status" class="fa fa-eye" aria-hidden="true" onClick="viewPassword('password', 'pass_status')"></i>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                <input class="form-control" placeholder="Confirm Password *" type="password" id="cpassword" required>
+                <i id="cpass_status" class="fa fa-eye" aria-hidden="true" onClick="viewPassword('cpassword', 'cpass_status')"></i>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><span class="iconify" data-icon="mdi-calendar" data-inline="false"></span></span>
+                    </div>
+                    <input placeholder="Select Date of Birth *" type="text" class="form-control" id="dob" onfocus="(this.type='date')" oninput="calculate_age(this.value)" [max]="getToday()" required/>
+                  </div>
+                </div>
+                <div class="col">
+                  <input placeholder="Age" type="text" class="form-control" id="age" disabled />
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <input class="form-control" id="phoneNumber" placeholder="Enter phone number *" pattern="/^\d{3}-\d{3}-\d{4}$/" maxlength="10" required/>
+                </div>
+                <div class="col">
+                  <select class="browser-default custom-select" id="gender" required>
+                    <option value="">Select Gender *</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- This field is to enter the street address. -->
+
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><span class="iconify" data-icon="mdi-city" data-inline="false"></span></span>
+                </div>
+                <input type="text" class="form-control" id="search_input" placeholder="Enter Street Address *" required/>
+              </div>            
+            </div>
+            
+            <!-- In this field user passes the zip code based on which the city, state, and country are populated. -->
+            
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><span class="iconify" data-icon="mdi-map-marker" data-inline="false"></span></span>
+                </div>
+                <input type="text" class="form-control" maxlength="5" oninput="getLocation(this.value)" pattern="[0-9] *" name="zip" id="zip" placeholder="Type your ZIP code *" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm">
+                  <input type="text" class="form-control" name="city" id="city" placeholder="City" disabled/>
+                </div>
+                <div class="col-sm">
+                  <input type="text" class="form-control" name="state" id="state" placeholder="State" disabled/>
+                </div>
+                <div class="col-sm">
+                  <input type="text" class="form-control" name="country" id="country" placeholder="Country" disabled/>
+                </div>
+              </div>
+            </div> 
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm">
+                  <select id="user_type" class="browser-default custom-select" (change)="getAdvisorList($event)" required>
+                    <option value="" selected >Select User Type *</option>
+                    <option value="student" >Student</option>
+                    <option value="advisor" >Co-Op Advisor</option>
+                  </select>
+                </div>
+                
+                <div class="col-sm">
+                  <select id="co_op_advisor" class="browser-default custom-select" style="display:none" required>
+                    <!-- <option selected >Select Co-Op Advisor</option> -->
+                    <!-- <option  *ngFor="let advisor of advisorList">{{advisor.name}}</option> -->
+                  </select>
+                  <!-- <h2>{{advisorList[0].name}}</h2> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><span class="iconify" data-icon="mdi-linkedin-box" data-inline="false"></span></span>
+                </div>
+                <input class="form-control" placeholder="LinkedIn URL (optional)" type="text" id="linkedInURL">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><span class="iconify" data-icon="mdi-github-box" data-inline="false"></span></span>
+                </div>
+                <input class="form-control" placeholder="GitHub URL (optional)" type="text" id="gitHubURL">
+              </div>
+            </div>    
+
+            <div class="row my-4">
+              <div class="col-12">
+                <div class="custom-control custom-control-alternative custom-checkbox">
+                  <!-- onclick="formValidation(this);" -->
+                  <input class="custom-control-input" id="customCheckRegister" type="checkbox" required>
+                  <label class="custom-control-label" for="customCheckRegister">
+                    <span class="text-muted">I agree with the <a >Privacy Policy</a></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row my-2 col-12">
+                <span> * &nbsp;</span><h6 style="color: red;"> marked fields are required</h6>
+            </div>
+
+            <div class="text-center">
+              <!-- (click)="createAccount(name.value, emailId.value, password.value, cpassword.value, dob.value, phoneNumber.value, gender.value, address.value, zip.value, city.value, state.value, country.value, user-type.value, co-op-advisor.value, linkedInURL.value, gitHubURL.value); name.value='', emailId.value='', password.value='', cpassword.value='', dob.value='', phoneNumber.value='', gender.value='', address.value='', zip.value='', city.value='', state.value='', country.value='', user-type.value='', co-op-advisor.value='', linkedInURL.value='', gitHubURL.value=''" -->
+              <button type="button" (click)="createAccount();" class="btn btn-primary my-4" >Create account</button>
+              <a href="/#/login" id="cancelButton" class="btn btn-primary my-4" >Cancel</a>
+              <!-- <button type="button" (click)="createAccount(name.value, emailId.value, password.value, dob);" class="btn btn-primary my-4" >Create account</button> -->
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

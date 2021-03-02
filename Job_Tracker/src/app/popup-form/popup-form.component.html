@@ -1,0 +1,99 @@
+<!-- <button mat-raised-button>Open</button> -->
+<!-- <app-toolbar></app-toolbar> -->
+<mat-dialog-content class="popup-container">
+    <form>
+    <div class="section">
+      <div class="left-section">
+      <div class="job-title">{{ data.companyName }}</div>
+      <div>
+        <mat-form-field>
+          <mat-label>Company</mat-label>
+          <input matInput value="{{ data.companyName }}" (input)="data.companyName=$event.target.value" ng-model="data.companyName">
+        </mat-form-field>
+        <mat-form-field class="job-input-field">
+          <mat-label>Job title</mat-label>
+          <input matInput value="{{ data.jobTitle }}" (input)="data.jobTitle=$event.target.value" ng-model="data.jobTitle">
+        </mat-form-field><br>
+        <mat-form-field class="text-area-field">
+          <mat-label>Description</mat-label>
+          <textarea matInput rows="10" value="{{ data.jobDescription }}" (input)="data.jobDescription=$event.target.value" ng-model="data.jobDescription"></textarea>
+        </mat-form-field><br>
+        <a  class="btn btn-primary" (click)="fileInput.click()">Add Resume</a>
+        <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file">
+        <a class="btn btn-primary" id="viewResume" (click)="viewResume()">View Resume</a><br>
+        <!-- <button mat-raised-button color="warn" (click)="fileInputCL.click()">Add Cover Letter</button> -->
+        <input hidden (change)="onCLSelected($event)" #fileInputCL type="file" id="fileCL">
+        <!-- <button mat-raised-button color="warn" (click)="viewCoverLetter()">View Document</button><br> -->
+        <button mat-raised-button type="submit" (click)="onSubmit()">Save Changes</button>
+      </div>
+    </div>
+    </div>
+    
+    <div class="section">
+      <div class="right-section">
+    <div class="field-headers">Log Dates</div>
+    <!-- <div>
+      <mat-form-field>
+        <mat-label>Deadline</mat-label>
+        <input matInput [matDatepicker]="DeadlinePicker" value="">
+        <mat-datepicker-toggle matSuffix [for]="DeadlinePicker"></mat-datepicker-toggle>
+        <mat-datepicker #DeadlinePicker></mat-datepicker>
+      </mat-form-field>
+    </div> -->
+    <div>
+      <mat-form-field>
+        <mat-label>Applied</mat-label>
+        <input matInput [matDatepicker]="AppliedDatepicker" value="{{ data.appliedDate }}" (input)="data.appliedDate=$event.target.value" ng-model="data.appliedDate">
+        <mat-datepicker-toggle matSuffix [for]="AppliedDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #AppliedDatepicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Interview 1</mat-label>
+        <input matInput [matDatepicker]="Interview1Datepicker" value="{{ data.interviewDate1 }}" (input)="data.interviewDate1=$event.target.value" ng-model="data.interviewDate1">
+        <mat-datepicker-toggle matSuffix [for]="Interview1Datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #Interview1Datepicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Interview 2</mat-label>
+        <input matInput [matDatepicker]="Interview2Datepicker" value="{{ data.interviewDate2 }}" (input)="data.interviewDate2=$event.target.value"  ng-model="data.interviewDate2">
+        <mat-datepicker-toggle matSuffix [for]="Interview2Datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #Interview2Datepicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Offer</mat-label>
+        <input matInput [matDatepicker]="Offer" value="{{ data.offerDate }}"  (input)="data.offerDate=$event.target.value" ng-model="data.offerDate">
+        <mat-datepicker-toggle matSuffix [for]="Offer"></mat-datepicker-toggle>
+        <mat-datepicker #Offer></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <!-- <div class="field-headers">Post URL</div>
+    <div>
+      <mat-form-field>
+        <mat-label>add URL</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div> -->
+    <div class="field-headers">Salary</div>
+    <div>
+      <mat-form-field>
+        <mat-label>add Salary</mat-label>
+        <input matInput value="{{ data.salary }}" (input)="data.salary=$event.target.value" ng-model = "data.salary">
+      </mat-form-field>
+    </div>
+    <div class="field-headers">Location</div>
+    <div>
+      <mat-form-field>
+        <mat-label>add Location</mat-label>
+        <input matInput value="{{ data.location }}" (input)="data.location=$event.target.value" ng-model="data.location">
+      </mat-form-field>
+    </div>
+    </div>
+    </div>
+    </form>
+    </mat-dialog-content>

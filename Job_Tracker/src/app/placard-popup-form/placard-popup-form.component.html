@@ -1,0 +1,44 @@
+
+<div class="example-container">
+    <p>Add job detail</p>
+    <div id="closebutton">
+      <a (click)="onCrossClick()">
+        <img src = "./../../assets/img/icons/download/close-24px.svg"/>
+      </a>
+    </div>
+  <mat-form-field  appearance="fill">
+    <mat-label>Company Name</mat-label>
+    <input matInput #input  placeholder="Ex. Dell"
+    [value]="companyName" (input)="companyName=$event.target.value"
+    [(ngModel)]="companyName" id="companyName" required>
+    <mat-hint align="end">{{input.value?.length || 0}}/100</mat-hint>
+     </mat-form-field>
+<br>
+  <mat-form-field  appearance="fill">
+    <mat-label>Position</mat-label>
+    <input 
+    matInput
+     #inputrole
+       placeholder="Ex. Data Analyst, Software Developer"
+       [value]="jobTitle" (input)="jobTitle=$event.target.value"
+      [(ngModel)]="jobTitle" id="position" required>
+    <mat-hint align="end">{{inputrole.value?.length || 0}}/100</mat-hint>
+     </mat-form-field>
+  
+<br>
+  <mat-form-field appearance="fill">
+    <mat-label>Job Status</mat-label>
+    <mat-select [(ngModel)]="jobStatus">
+      <mat-option value="wishlist">Wishlist</mat-option>
+      <mat-option value="applied">Applied</mat-option>
+      <mat-option value="interview">Interview</mat-option>
+      <mat-option value="offered">Offer</mat-option>
+      <mat-option value="rejected">Rejected</mat-option>
+    </mat-select>
+    
+  </mat-form-field><br>
+  <div class="example-button-row">
+  <button mat-raised-button [mat-dialog-close]="numbers" (click)="createPlacard()" color="primary">Submit</button>
+</div>
+
+</div>

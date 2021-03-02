@@ -1,0 +1,15 @@
+<div id="{{'job-' + job.id}}" [class.mat-elevation-z12]=true class="placard"
+    [class.job]="classObject.job"
+    [style.top.px]="styleObject.top" 
+    [style.left.px]="styleObject.left" (click)="onClick()">
+    <div id ="company_div">
+    <p>Company: <b>{{job.companyName}}</b></p>
+ </div>
+ <div id="title_div">
+    <p>Title: <b>{{job.jobTitle}}</b></p></div>
+    <div id="delete-div">
+    <a href="#/application_tracker" (click)="deletePlacard()">
+           <mat-icon id="delete-icon">delete_outline</mat-icon>
+</a>
+</div>
+</div>

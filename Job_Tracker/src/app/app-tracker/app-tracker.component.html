@@ -1,0 +1,121 @@
+<div class="icon_container"></div>
+
+<mat-toolbar color="warn" [class.mat-elevation-z10]="true">
+    <span>Wishlist <br><mat-icon>shopping_cart</mat-icon></span>
+    <span>Applied <br><mat-icon>mail</mat-icon></span>
+    <span>Interview <br>&nbsp;<mat-icon>supervisor_account</mat-icon></span>
+    <span>&nbsp;&nbsp; Offer <br>&nbsp;<mat-icon>thumb_up</mat-icon></span>
+    <span>&nbsp;&nbsp; Rejected <br>&nbsp;&nbsp;&nbsp;<mat-icon>thumb_down</mat-icon></span>
+</mat-toolbar>
+
+<div class="main_container" >
+
+<div class= "wishlist">
+
+    <div class="wishlist_container">
+
+        <div class="division_header">
+
+            <div  class="add_button_div">
+                <a class="add_button_link" (click)="popupPlacardForm()">
+                    Add Job <img class="add_button_img" src="./../../assets/img/icons/download/add-24px.svg">
+                </a>
+            </div>
+
+
+        </div>
+
+    </div>
+    
+<!-- Wishlist -->
+<div class="body"
+
+ cdkDropList
+[cdkDropListData]="notesParent"
+ (cdkDropListDropped)="drop($event)"
+ [cdkDropListConnectedTo]="[appliedList, interviewList, offeredList, rejectedList]"
+ #wishlistList="cdkDropList">
+    
+    <div class="holder" cdkDrag *ngFor="let item of notesParent">
+        <app-placard [job] ="item" [companyName]="companyName" [jobTitle]="jobTitle" (newDeleteEmitted)="removeNote($event)"></app-placard>   
+    </div>
+
+</div>
+</div> 
+
+
+<!-- Applied -->
+
+        <div class= "applied">
+
+            <div class="body"
+            cdkDropList
+            [cdkDropListData]="appliedNumbers"
+            (cdkDropListDropped)="drop($event)"
+            [cdkDropListConnectedTo]="[wishlistList, interviewList, offeredList, rejectedList]"
+            #appliedList="cdkDropList"
+            >
+            <div class="holder" cdkDrag *ngFor="let item of appliedNumbers">
+                <app-placard [job] ="item" [companyName]="companyName" [jobTitle]="jobTitle" (newDeleteEmitted)="removeNote($event)"></app-placard>   
+           </div>
+            </div>
+
+        </div>
+
+<!-- Interview -->
+
+            <div class= "interview">
+    
+                <div class="body"
+                cdkDropList
+                [cdkDropListData]="interviewNumbers"
+                (cdkDropListDropped)="drop($event)"
+                [cdkDropListConnectedTo]="[wishlistList, appliedList, offeredList, rejectedList]"
+                #interviewList="cdkDropList"
+                >
+                <div class="holder" cdkDrag *ngFor="let item of interviewNumbers">
+                   <app-placard [job]="item" [companyName]="companyName" [jobTitle]="jobTitle" (newDeleteEmitted)="removeNote($event)"></app-placard>
+               </div>
+                </div>
+
+            </div>
+
+<!-- Offered -->
+                
+            <div class= "offered">
+
+    
+                <div class="body"
+                cdkDropList
+                [cdkDropListData]="offeredNumbers"
+                (cdkDropListDropped)="drop($event)"
+                [cdkDropListConnectedTo]="[wishlistList, appliedList, interviewList, rejectedList]"
+                #offeredList="cdkDropList"
+                >
+                <div class="holder" cdkDrag *ngFor="let item of offeredNumbers">
+                   <app-placard [job]="item" [companyName]="companyName" [jobTitle]="jobTitle" (newDeleteEmitted)="removeNote($event)"></app-placard>
+               </div>
+                </div>
+
+            </div>
+     
+
+<!-- Rejected-->
+
+            <div class= "rejected">
+
+                <div class="body"
+                cdkDropList
+                [cdkDropListData]="rejectedNumbers"
+                (cdkDropListDropped)="drop($event)"
+                [cdkDropListConnectedTo]="[wishlistList, appliedList, interviewList, offeredList]"
+                #rejectedList="cdkDropList"
+                >
+                <div class="holder" cdkDrag *ngFor="let item of rejectedNumbers">
+                   <app-placard [job]="item" [companyName]="companyName" [jobTitle]="jobTitle" (newDeleteEmitted)="removeNote($event)"></app-placard>
+               </div>
+                </div>
+
+            </div>
+
+</div>

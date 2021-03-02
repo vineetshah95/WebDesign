@@ -1,0 +1,67 @@
+/**
+Variables to get different colors
+**/
+$chartColors: #56c7fa, #f76540, #ffcb05, #62cd9f, #b67baa;
+@for $i from 1 through length($chartColors) {
+  $chartColors: append($chartColors, darken(nth($chartColors, $i), 25));
+}
+$chartColorsLength: length($chartColors);
+
+
+.placard {
+  width: 90%;
+  height: 150px;
+  padding: 5%;
+  margin: 5%;
+  border-radius: 5px;
+ 
+  @for $i from 1 through $chartColorsLength {
+    &:nth-of-type(#{$chartColorsLength}n+#{$i}) {
+      background-color: nth($chartColors, $i);
+      
+     
+    }
+  }  
+}
+.placard{
+    width: 90%;
+    height: 150px;
+    padding: 5%;
+margin: 5%;
+border-radius: 5px;
+}
+
+.placard:hover{
+    cursor: grab;
+    #delete-div {
+        visibility: visible;
+    }
+}
+
+
+div{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: white;
+}
+b{
+  font-size: 18px;
+}
+
+#delete-div{
+  width: 28px;
+  position: relative;
+  float: right;
+   color: white;
+  visibility: hidden;
+    #delete-icon{
+     
+      color: white;
+     
+    }
+   
+}
+
+a{
+  color: #56c7fa;
+    background-color: #56c7fa;
+}

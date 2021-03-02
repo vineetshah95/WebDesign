@@ -1,0 +1,25 @@
+.nav-links{
+    padding: 50px;
+}
+.nav-links a{
+    color: lightgray;
+    text-decoration: none;
+    font-weight: 400;
+}
+.nav-links a:hover{
+    color: black;
+}
+.nav-links a:active{
+    color: black;
+}
+mat-toolbar{
+    background-color: white;
+}
+p{
+    color: lightgray;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: larger;
+    padding-top: 10px;
+}
+

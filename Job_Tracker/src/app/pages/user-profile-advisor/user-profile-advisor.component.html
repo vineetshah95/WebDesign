@@ -1,0 +1,230 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="background-size: cover; background-position: center top;">
+  <!-- Mask -->
+  <span class="mask bg-gradient-danger opacity-8"></span>
+  <!-- Header container -->
+  <div class="container-fluid d-flex align-items-center">
+    <div class="row">
+      <div class="col-lg-7 col-md-10">
+        <h1 class="display-2 text-white" [(ngModel)] = "userName1" id="userName1">{{ userName1 }}</h1>
+        <p class="text-white mt-0 mb-5">This is your profile page. You can see the view and manage your profile here.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<form>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+      <div class="card card-profile bg-secondary shadow">
+        <div class="form-group" style="margin-top: -50px; margin-left: 45px;">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 order-lg-2">
+              <div class="card-profile-image">
+                <a href="javascript:void(0)">
+                  <label for="file" style="cursor: pointer;" class="btn btn-default btn-file" >
+                    <img [src]="imageToShow" class="rounded-circle" style="height: 180px; width: 350px" > 
+                  </label>
+                  <input type="file" accept="image/*" name="image" id="file" (change)="selectImage($event)" style="display: none;">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <br>
+        <div class="card-body pt-0 pt-md-4">
+          <div class="row">
+            <div class="col">
+              <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <h3 [(ngModel)] = "userName" id="userName">
+              {{ userName }}
+            </h3>
+            <div class="h5 font-weight-300" [(ngModel)] = "location" id="location">
+              {{location}}
+            </div>
+            <div>
+              <i class="ni education_hat mr-2"></i>Northeastern University
+            </div>
+            <hr class="my-4" />
+            <span id="aboutMe2" [(ngModel)]="aboutMe2">{{ aboutMe2 }}</span>
+          </div>
+        </div>
+      </div>
+      <br><br>
+
+      <div class="row" style="margin-top:8px;">
+        <div class="col-xl-12 order-xl-2 mb-5 mb-xl-0">
+          
+          <div class="card card-profile bg-secondary shadow">
+            <div class="card-body pt-0 pt-md-4">
+              <h6 class="heading-small text-muted mb-4">Application Data</h6>
+
+              <div class="form-group">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><span class="iconify" data-icon="mdi-linkedin-box" data-inline="false"></span></span>
+                  </div>
+                  <input class="form-control" placeholder="LinkedIn URL" type="text" id="linkedInURL">
+                </div>
+              </div>
+            
+              <div class="form-group">
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><span class="iconify" data-icon="mdi-github-box" data-inline="false"></span></span>
+                  </div>
+                  <input class="form-control" placeholder="GitHub URL" type="text" id="gitHubURL">
+                </div>
+              </div> 
+
+              <div class="row">
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+    <div class="col-xl-8 order-xl-1">
+      <form>
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">My account</h3>
+              </div>
+              <div class="col-4 text-right">
+                <!-- (click)="updateProfile()"  -->
+                <button (click)="updateUserInfo();"  class="btn btn-sm btn-primary">Save Profile</button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="heading-small text-muted mb-4">User information</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <!-- <i class="ni ni-hat-3"></i> -->
+                        <span class="input-group-text"><span class="iconify" data-icon="mdi-account" data-inline="false"></span></span>
+                      </div>
+                      <input class="form-control" placeholder="Name" type="text" id="name">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                      </div>
+                      <input class="form-control" placeholder="Email" type="email" id="emailId" disabled>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><span class="iconify" data-icon="mdi-calendar" data-inline="false"></span></span>
+                      </div>
+                      <input placeholder="Select Date of Birth" type="text" class="form-control" id="dob" onfocus="(this.type='date')" oninput="calculate_age(this.value)" disabled/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <input placeholder="Age" type="text" class="form-control" id="age" disabled/>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <input type="text" class="form-control" ng2TelInput (hasError)="hasError($event)" (ng2TelOutput)="getNumber($event)" (intlTelInputObject)="telInputObject($event)" (countryChange)="onCountryChange($event)" style="width: 440px;" id="phoneNumber" />
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <select class="browser-default custom-select" id="gender">
+                      <option value="" selected>Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4" />
+            <!-- Address -->
+            <h6 class="heading-small text-muted mb-4">Contact information</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><span class="iconify" data-icon="mdi-city" data-inline="false"></span></span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Enter Street Address" id="search_input" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><span class="iconify" data-icon="mdi-map-marker" data-inline="false"></span></span>
+                      </div>
+                      <input type="text" class="form-control" maxlength="5" oninput="getLocation(this.value)" pattern="[0-9]*" name="zip" id="zip" placeholder="Type your ZIP code"   />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm">
+                  <input type="text" class="form-control" name="city" placeholder="City" id="city" disabled/>
+                </div>
+                <div class="col-sm">
+                  <input type="text" class="form-control" name="state" placeholder="State" id="state" disabled/>
+                </div>
+                <div class="col-sm">
+                  <input type="text" class="form-control" name="country" placeholder="Country" id="country" disabled/>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4" />
+            <!-- Description -->
+            <h6 class="heading-small text-muted mb-4">About me</h6>
+            <div class="pl-lg-4">
+              <div class="form-group">
+                <textarea rows="4" class="form-control form-control-alternative" placeholder="About Me: A few words about you ..." id="aboutme" >A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+</form>

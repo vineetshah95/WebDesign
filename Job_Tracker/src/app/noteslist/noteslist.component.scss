@@ -1,0 +1,56 @@
+.container{
+    width: 215px;
+    height: 235px;
+    padding: 20px;
+    // padding-bottom: 10px;
+    &:hover
+    {
+    .deleteIcon{
+        visibility: visible;
+        button:focus{
+            outline: 0;
+        }
+    }
+    .saveIcon{
+        visibility: visible;
+        button:focus{
+            outline: 0;
+        }
+    }
+    }
+}
+.outercontainer{
+    display: inline-grid;
+    margin: 10px;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+.deleteIcon{
+    visibility: hidden;
+}
+.saveIcon{
+    visibility: hidden;
+}
+textarea{
+    resize: none;
+}
+.iconContainer{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 100px;
+}
+.outercontainer::-webkit-scrollbar {
+    width: 1em;
+    border-radius: 5px;
+  }
+   
+  .outercontainer::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+   
+  .outercontainer::-webkit-scrollbar-thumb {
+    background-color: white;
+    outline: 1px solid slategrey;
+    border-radius: 5px;;
+  }
+
+
